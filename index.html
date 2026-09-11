@@ -160,7 +160,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     margin-bottom: 2px;
   }
 
@@ -172,10 +172,10 @@
 
   .company-title-input {
       font-size: 33px !important;
-      text-align: center !important;
+      text-align: left !important;
       flex: 0 0 auto !important;
       width: auto !important;
-      min-width: 380px !important;
+      min-width: 0 !important;
       field-sizing: content;
       font-weight: 900 !important;
       color: #4A2D7A !important;
@@ -272,50 +272,28 @@
   }
 
   /* Centered Title above Table */
-        .bill-title-banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 12px auto 8px auto;
-    font-weight: bold;
-    font-size: 11.5px;
-    width: 100%;
-  }
-
-  .bill-title-banner .bill-title-input {
-    flex: none;
-    width: auto;
-    field-sizing: content;
-    min-width: 300px;
-    max-width: 550px;
-    border: 1px dashed #bbb;
-    background: #fff;
-    font-weight: bold;
-    font-size: 11.5px;
-    padding: 2px 6px;
-    border-radius: 3px;
-    outline: none;
-    text-align: left;
-  }
-
   .bill-title-banner {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 12px auto 8px auto;
+    gap: 4px;
+    margin: 10px auto 6px auto;
     font-weight: bold;
     font-size: 11.5px;
     width: 100%;
   }
 
+  .bill-title-banner span {
+    white-space: nowrap;
+  }
+
   .bill-title-banner .bill-title-input {
-    flex: none;
+    flex: 0 0 auto;
     width: auto;
     field-sizing: content;
-    min-width: 300px;
-    max-width: 550px;
+    min-width: 0;
+    max-width: 600px;
     border: 1px dashed #bbb;
     background: #fff;
     font-weight: bold;
@@ -330,6 +308,7 @@
   .table-scroll-wrap {
     width: 100%;
     overflow-x: auto;
+    overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch;
     margin-bottom: 12px;
   }
@@ -346,17 +325,22 @@
     transform: translate(-50%, -50%);
     width: 270px;
     max-width: 50%;
+    max-height: 80%;
     opacity: var(--wm-opacity, 0.12);
     display: var(--wm-display, flex);
     pointer-events: none;
     z-index: 0;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
 
   .table-watermark img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
+    object-fit: contain;
     display: block;
   }
 
@@ -366,7 +350,7 @@
     position: relative;
     z-index: 1;
     background: transparent;
-    font-size: 9.6px;
+    font-size: var(--table-font-size, 11.5px);
   }
 
   .bill-table th, .bill-table td {
@@ -420,7 +404,7 @@
     border: none;
     background: transparent;
     font-family: inherit;
-    font-size: inherit;
+    font-size: var(--table-font-size, 11.5px);
     color: inherit;
     padding: 0;
     outline: none;
@@ -642,6 +626,8 @@
 
     .table-scroll-wrap {
       margin-bottom: 8px;
+      overflow-x: auto;
+      overflow-y: hidden !important;
       border: 1px solid #e2e8f0;
       border-radius: 4px;
     }
@@ -682,12 +668,14 @@
     }
     .header-container {
       margin-bottom: 0 !important;
+      text-align: center !important;
     }
     .header-logo-title {
-      display: flex !important;
+      display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      gap: 12px !important;
+      gap: 6px !important;
+      margin: 0 auto !important;
     }
     .company-title-input {
       font-size: 34px !important;
@@ -696,9 +684,10 @@
       border: none !important;
       background: transparent !important;
       padding: 0 !important;
-      text-align: center !important;
+      text-align: left !important;
+      field-sizing: content;
       width: auto !important;
-      min-width: 400px !important;
+      min-width: 0 !important;
       flex: 0 0 auto !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
@@ -759,21 +748,28 @@
       align-items: center !important;
       text-align: center !important;
       width: 100% !important;
+      gap: 4px !important;
       margin: 3.5mm auto 2.5mm auto !important;
       font-size: 12.5px !important;
       font-weight: bold !important;
     }
+    .bill-title-banner span {
+      white-space: nowrap !important;
+    }
     .bill-title-banner .bill-title-input {
-      flex: none !important;
+      flex: 0 0 auto !important;
       width: auto !important;
+      min-width: 0 !important;
+      field-sizing: content !important;
       font-weight: bold !important;
       font-size: 12.5px !important;
-      text-align: center !important;
+      text-align: left !important;
+      padding: 0 !important;
     }
     .bill-table {
       width: 100% !important;
       border-collapse: collapse !important;
-      font-size: 11.5px !important;
+      font-size: var(--table-font-size, 11.5px) !important;
       background: transparent !important;
     }
     .bill-table th, .bill-table td {
@@ -782,6 +778,7 @@
       text-align: left !important;
       background: transparent !important;
       color: #000000 !important;
+      font-size: var(--table-font-size, 11.5px) !important;
       font-weight: 500 !important;
     }
     .bill-table th {
@@ -802,7 +799,7 @@
       text-align: left !important;
     }
     .bill-table tfoot td {
-      font-size: 11.5px !important;
+      font-size: var(--table-font-size, 11.5px) !important;
       font-weight: bold !important;
       padding: 5px 6px !important;
     }
@@ -815,12 +812,18 @@
       transform: translate(-50%, -50%) !important;
       width: 270px !important;
       max-width: 50% !important;
+      max-height: 80% !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
       z-index: 0 !important;
+      overflow: hidden !important;
     }
     .table-watermark img {
-      width: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      width: auto !important;
+      height: auto !important;
+      object-fit: contain !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
@@ -863,6 +866,19 @@
     <button class="btn-sm btn-outline" onclick="document.getElementById('wmFileInput').click()">📁 ছবি আপলোড</button>
     <input type="file" id="wmFileInput" accept="image/*" style="display:none" onchange="handleWatermarkUpload(this)">
     <button class="btn-sm btn-outline" onclick="resetWatermarkDefault()">🔄 ডিফল্ট</button>
+  </div>
+  
+  <div class="toolbar-divider"></div>
+
+  <div class="wm-toolbar-row">
+    <span style="font-weight: 600; color: #1e293b;">🔤 লেখার সাইজ:</span>
+    <button class="btn-sm btn-outline btn-step" onclick="stepFontSize(-0.5)" title="ছোট করুন">➖</button>
+    <label class="wm-control-item">
+      <input type="range" id="fontSizeRange" min="9" max="15" step="0.5" value="11.5" oninput="changeTableFontSize(this.value)">
+      <span id="fontSizeVal" style="font-weight:600; min-width: 44px; text-align: center; display: inline-block;">11.5px</span>
+    </label>
+    <button class="btn-sm btn-outline btn-step" onclick="stepFontSize(0.5)" title="বড় করুন">➕</button>
+    <button class="btn-sm btn-outline" onclick="resetFontSizeDefault()" title="ডিফল্ট সাইজ">🔄 ডিফল্ট (11.5px)</button>
   </div>
 </div>
 
@@ -935,7 +951,7 @@
 
   <!-- Bill Title -->
   <div class="bill-title-banner">
-    <span>Bill For&nbsp;</span>
+    <span>Bill For :</span>
     <input type="text" class="editable-input bill-title-input" id="bill_for_title"  value="Matador Plastic & Rubber Industries Limited" oninput="saveData()">
   </div>
 
@@ -1041,6 +1057,30 @@ function handleWatermarkUpload(input) {
     };
     reader.readAsDataURL(input.files[0]);
   }
+}
+
+
+function changeTableFontSize(val) {
+  const size = parseFloat(val);
+  document.documentElement.style.setProperty('--table-font-size', size + 'px');
+  const display = document.getElementById('fontSizeVal');
+  if (display) display.innerText = size.toFixed(1) + 'px';
+  const range = document.getElementById('fontSizeRange');
+  if (range) range.value = size;
+  localStorage.setItem('mk_font_size', size);
+}
+
+function stepFontSize(delta) {
+  const range = document.getElementById('fontSizeRange');
+  const current = parseFloat(range ? range.value : 11.5) || 11.5;
+  let next = current + delta;
+  if (next < 9) next = 9;
+  if (next > 15) next = 15;
+  changeTableFontSize(next);
+}
+
+function resetFontSizeDefault() {
+  changeTableFontSize(11.5);
 }
 
 function resetWatermarkDefault() {
@@ -1191,25 +1231,7 @@ function renderTable() {
     tbody.appendChild(tr);
   });
 
-  // Minimum 10 rows full grid (ছকের দাগ নিচে পর্যন্ত পূর্ণ রাখার জন্য)
-  const minRows = 10;
-  if (tripsData.length < minRows) {
-    for (let i = tripsData.length + 1; i <= minRows; i++) {
-      const blankTr = document.createElement("tr");
-      blankTr.className = "blank-filler-row";
-      blankTr.innerHTML = `
-        <td class="col-sl text-center">&nbsp;</td>
-        <td class="col-date">&nbsp;</td>
-        <td class="col-challan">&nbsp;</td>
-        <td class="col-trip">&nbsp;</td>
-        <td class="col-vehicle">&nbsp;</td>
-        <td class="col-dest">&nbsp;</td>
-        <td class="col-amount">&nbsp;</td>
-        <td class="col-action"></td>
-      `;
-      tbody.appendChild(blankTr);
-    }
-  }
+
 
   calculateTotal();
 }

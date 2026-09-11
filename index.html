@@ -623,13 +623,73 @@
   }
 
   @media print {
-
+    @page {
+      size: A4 portrait;
+      margin: 8mm 10mm 6mm 10mm !important;
+    }
+    body {
+      background: #ffffff !important;
+      padding: 0 !important;
+    }
+    .bill-page {
+      max-width: 100% !important;
+      width: 100% !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+    }
+    .toolbar, .table-controls, .col-action, .btn-del-row, .mobile-tip, .watermark-toolbar {
+      display: none !important;
+    }
+    .table-scroll-wrap {
+      overflow-x: visible !important;
+      margin-bottom: 0 !important;
+      border: none !important;
+    }
+    .table-wrapper {
+      min-width: 100% !important;
+      position: relative !important;
+    }
+    .header-container {
+      margin-bottom: 0 !important;
+    }
+    .header-logo-title {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 12px !important;
+    }
+    .company-title-input {
+      font-size: 34px !important;
+      font-weight: 900 !important;
+      color: #4A2D7A !important;
+      border: none !important;
+      background: transparent !important;
+      padding: 0 !important;
+      text-align: left !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .company-address-input {
+      font-size: 10.5px !important;
+      border: none !important;
+      background: transparent !important;
+      padding: 0 !important;
+      text-align: center !important;
+      margin-top: 2px !important;
+    }
+    .header-divider {
+      margin: 5px 0 8px 0 !important;
+      border-top: 1px solid #000 !important;
+    }
     .info-grid {
       display: flex !important;
       flex-direction: row !important;
       justify-content: space-between !important;
       align-items: flex-start !important;
-      margin-bottom: 8px !important;
+      margin-bottom: 6px !important;
+      font-size: 11px !important;
+      line-height: 1.5 !important;
     }
     .info-left {
       width: 50% !important;
@@ -638,120 +698,74 @@
       padding-bottom: 0 !important;
     }
     .info-right {
-      width: 152px !important;
-      max-width: 152px !important;
+      width: 175px !important;
+      max-width: 175px !important;
       margin-left: auto !important;
+      box-sizing: border-box !important;
     }
-    .company-title-input {
-      font-size: 33px !important;
-      font-weight: 900 !important;
-      text-align: left !important;
+    .info-right .info-row {
+      display: flex !important;
+      align-items: baseline !important;
+      margin-bottom: 2px !important;
+      width: 100% !important;
+    }
+    .info-right .editable-input {
+      min-width: 0 !important;
+      flex: 1 !important;
+      box-sizing: border-box !important;
+      font-size: 11px !important;
+    }
+    .editable-input, .bill-title-input, .sig-input {
+      border: none !important;
+      background: transparent !important;
+      padding: 0 !important;
     }
     .bill-title-banner {
-      flex-direction: row !important;
       display: flex !important;
       justify-content: center !important;
       align-items: center !important;
+      text-align: center !important;
+      width: 100% !important;
+      margin: 3.5mm auto 2.5mm auto !important;
+      font-size: 12.5px !important;
+      font-weight: bold !important;
     }
     .bill-title-banner .bill-title-input {
+      flex: none !important;
       width: auto !important;
+      font-weight: bold !important;
+      font-size: 12.5px !important;
       text-align: center !important;
     }
-
-    .footer-sig {
-      margin-top: 24mm !important;
-      page-break-inside: avoid !important;
-    }
-        .bill-title-banner {
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
+    .bill-table {
       width: 100% !important;
-      margin: 4mm auto 2mm auto !important;
-    }
-    .bill-title-banner .bill-title-input {
-    flex: none !important;
-    width: auto;
-    field-sizing: content;
-    min-width: 280px;
-    max-width: 550px;
-    border: 1px dashed #bbb;
-    background: #fff;
-    font-weight: bold;
-    font-size: 11px;
-    padding: 1px 6px;
-    border-radius: 3px;
-    outline: none;
-    text-align: left;
-  }
-    body {
-      background: #ffffff !important;
-      padding: 0 !important;
-    }
-    .toolbar, .table-controls, .col-action, .btn-del-row, .mobile-tip, .watermark-toolbar {
-      display: none !important;
-    }
-    .table-scroll-wrap {
-      overflow-x: visible !important;
-      margin-bottom: 0 !important;
-    }
-    .table-wrapper {
-      min-width: 100% !important;
-      position: relative !important;
-    }
-    .bill-page {
-      max-width: 100% !important;
-      width: 100% !important;
-      padding: 8mm 10mm !important;
-      box-shadow: none !important;
-      border-radius: 0 !important;
-    }
-    .editable-input, .bill-title-input {
-      border: none !important;
+      border-collapse: collapse !important;
+      font-size: 11.5px !important;
       background: transparent !important;
-      padding: 0 !important;
     }
-    .company-title-input {
-      font-size: 33px !important;
-      font-weight: 900 !important;
-      color: #4A2D7A !important;
-      border: none !important;
+    .bill-table th, .bill-table td {
+      border: 1px solid #000 !important;
+      padding: 4px 6px !important;
+      text-align: left !important;
       background: transparent !important;
-      padding: 0 !important;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
+      color: #000000 !important;
+      font-weight: 500 !important;
     }
-    .company-address-input {
-      border: none !important;
-      background: transparent !important;
-      padding: 0 !important;
-      text-align: center !important;
+    .bill-table th {
+      font-weight: 700 !important;
     }
-    .sig-input {
-      border: none !important;
-      background: transparent !important;
-      padding: 0 !important;
+    .bill-table th {
+      font-weight: bold !important;
+      background: rgba(255,255,255,0.7) !important;
     }
-    .info-right {
-    width: 210px;
-    margin-left: auto;
-    box-sizing: border-box;
-  }
-
-  .info-right .info-row {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 2px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .info-right .editable-input {
-    min-width: 0;
-    flex: 1;
-    box-sizing: border-box;
-  }
+    .bill-table td.col-amount {
+      text-align: right !important;
+    }
+    .bill-table tfoot td {
+      font-size: 11.5px !important;
+      font-weight: bold !important;
+      padding: 5px 6px !important;
+    }
     .table-watermark {
       display: var(--wm-display, flex) !important;
       opacity: var(--wm-opacity, 0.12) !important;
@@ -770,9 +784,17 @@
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
-    @page {
-      size: A4 portrait;
-      margin: 5mm;
+    .footer-sig {
+      margin-top: 20mm !important;
+      width: 180px !important;
+      page-break-inside: avoid !important;
+    }
+    .sig-line {
+      border-top: 1px solid #000 !important;
+      margin-bottom: 4px !important;
+    }
+    .sig-input {
+      font-size: 12px !important;
     }
   }
 </style>

@@ -386,6 +386,29 @@
   .col-amount { width: 11%; text-align: right !important; }
   .col-action { width: 5%; text-align: center !important; }
 
+
+  .bill-table {
+    border: 1.5px solid #000000 !important;
+  }
+  .bill-table th.col-amount, 
+  .bill-table td.col-amount, 
+  .bill-table td.total-amount {
+    border-right: 1.5px solid #000000 !important;
+  }
+  .bill-table th.col-sl, 
+  .bill-table td.col-sl, 
+  .bill-table td.total-label {
+    border-left: 1.5px solid #000000 !important;
+  }
+  .bill-table tfoot td {
+    border-top: 1.5px solid #000000 !important;
+    border-bottom: 1.5px solid #000000 !important;
+  }
+  .blank-filler-row td {
+    height: 24px;
+    background: transparent !important;
+  }
+
   .table-input {
     width: 100%;
     border: none;
@@ -1150,6 +1173,27 @@ function renderTable() {
     `;
     tbody.appendChild(tr);
   });
+
+  // Minimum 10 rows full grid (ছকের দাগ নিচে পর্যন্ত পূর্ণ রাখার জন্য)
+  const minRows = 10;
+  if (tripsData.length < minRows) {
+    for (let i = tripsData.length + 1; i <= minRows; i++) {
+      const blankTr = document.createElement("tr");
+      blankTr.className = "blank-filler-row";
+      blankTr.innerHTML = `
+        <td class="col-sl text-center">&nbsp;</td>
+        <td class="col-date">&nbsp;</td>
+        <td class="col-challan">&nbsp;</td>
+        <td class="col-trip">&nbsp;</td>
+        <td class="col-vehicle">&nbsp;</td>
+        <td class="col-dest">&nbsp;</td>
+        <td class="col-amount text-right">&nbsp;</td>
+        <td class="col-action"></td>
+      `;
+      tbody.appendChild(blankTr);
+    }
+  }
+
   calculateTotal();
 }
 

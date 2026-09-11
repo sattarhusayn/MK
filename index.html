@@ -172,6 +172,11 @@
 
   .company-title-input {
       font-size: 33px !important;
+      text-align: center !important;
+      flex: 0 0 auto !important;
+      width: auto !important;
+      min-width: 380px !important;
+      field-sizing: content;
       font-weight: 900 !important;
       color: #4A2D7A !important;
       border: none !important;
@@ -374,16 +379,17 @@
   .bill-table th {
     font-weight: bold;
     text-align: left;
+    white-space: nowrap !important;
     background: rgba(255,255,255,0.7) !important;
   }
 
     .col-sl { width: 4.5%; text-align: center !important; }
-  .col-date { width: 12%; }
-  .col-challan { width: 8.5%; text-align: center !important; }
-  .col-trip { width: 8.5%; text-align: center !important; }
-  .col-vehicle { width: 13.5%; }
-  .col-dest { width: 37%; font-family: 'Noto Sans Bengali', Arial, sans-serif; }
-  .col-amount { width: 11%; text-align: right !important; }
+  .col-date { width: 11%; }
+  .col-challan { width: 11%; text-align: left !important; white-space: nowrap !important; }
+  .col-trip { width: 9%; text-align: left !important; white-space: nowrap !important; }
+  .col-vehicle { width: 13%; }
+  .col-dest { width: 34.5%; font-family: 'Noto Sans Bengali', Arial, sans-serif; }
+  .col-amount { width: 12%; text-align: left !important; }
   .col-action { width: 5%; text-align: center !important; }
 
 
@@ -420,8 +426,8 @@
     outline: none;
   }
 
-    .col-challan .table-input, .col-trip .table-input {
-    text-align: center;
+    .col-challan .table-input, .col-trip .table-input, .col-amount .table-input {
+    text-align: left;
   }
   .table-input:focus {
     background: rgba(37, 99, 235, 0.08);
@@ -444,7 +450,8 @@
 
   .total-amount {
     font-weight: bold;
-    text-align: right !important;
+    text-align: left !important;
+    padding-left: 6px !important;
   }
 
   .btn-del-row {
@@ -689,7 +696,10 @@
       border: none !important;
       background: transparent !important;
       padding: 0 !important;
-      text-align: left !important;
+      text-align: center !important;
+      width: auto !important;
+      min-width: 400px !important;
+      flex: 0 0 auto !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
@@ -775,14 +785,21 @@
       font-weight: 500 !important;
     }
     .bill-table th {
-      font-weight: 700 !important;
-    }
-    .bill-table th {
       font-weight: bold !important;
+      white-space: nowrap !important;
       background: rgba(255,255,255,0.7) !important;
     }
-    .bill-table td.col-amount {
-      text-align: right !important;
+    .bill-table .col-sl { width: 4.5% !important; text-align: center !important; }
+    .bill-table .col-date { width: 11.5% !important; }
+    .bill-table .col-challan { width: 11% !important; text-align: left !important; white-space: nowrap !important; }
+    .bill-table .col-trip { width: 9.5% !important; text-align: left !important; white-space: nowrap !important; }
+    .bill-table .col-vehicle { width: 13.5% !important; }
+    .bill-table .col-dest { width: 36.5% !important; }
+    .bill-table .col-amount { width: 13.5% !important; text-align: left !important; }
+    .bill-table th.col-amount, 
+    .bill-table td.col-amount,
+    .bill-table td.total-amount {
+      text-align: left !important;
     }
     .bill-table tfoot td {
       font-size: 11.5px !important;
@@ -1164,11 +1181,11 @@ function renderTable() {
     tr.innerHTML = `
       <td class="col-sl text-center">${idx + 1}</td>
       <td class="col-date"><input type="text" class="table-input" value="${trip.date || ''}" oninput="saveData()"></td>
-      <td class="col-challan"><input type="text" inputmode="numeric" class="table-input" style="text-align: center;" value="${trip.challan || ''}" oninput="saveData()"></td>
-      <td class="col-trip"><input type="text" inputmode="numeric" class="table-input" style="text-align: center;" value="${trip.trip || ''}" oninput="saveData()"></td>
+      <td class="col-challan"><input type="text" inputmode="numeric" class="table-input" style="text-align: left;" value="${trip.challan || ''}" oninput="saveData()"></td>
+      <td class="col-trip"><input type="text" inputmode="numeric" class="table-input" style="text-align: left;" value="${trip.trip || ''}" oninput="saveData()"></td>
       <td class="col-vehicle"><input type="text" class="table-input" value="${trip.vehicle || 'D.M.N 19-7977'}" oninput="saveData()"></td>
       <td class="col-dest"><input type="text" class="table-input" value="${trip.dest || ''}" oninput="saveData()"></td>
-      <td class="col-amount"><input type="number" inputmode="numeric" class="table-input text-right" value="${trip.amount || 0}" oninput="saveData()"></td>
+      <td class="col-amount"><input type="number" inputmode="numeric" class="table-input" style="text-align: left;" value="${trip.amount || 0}" oninput="saveData()"></td>
       <td class="col-action"><button class="btn-del-row" onclick="deleteRow(${idx})" title="মুছুন">✕</button></td>
     `;
     tbody.appendChild(tr);
@@ -1187,7 +1204,7 @@ function renderTable() {
         <td class="col-trip">&nbsp;</td>
         <td class="col-vehicle">&nbsp;</td>
         <td class="col-dest">&nbsp;</td>
-        <td class="col-amount text-right">&nbsp;</td>
+        <td class="col-amount">&nbsp;</td>
         <td class="col-action"></td>
       `;
       tbody.appendChild(blankTr);
